@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<launch>
+
+  <param name="real_robot" value="true" />
+
+  <!-- GDB functionality -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <!-- Load example URDF -->
+  <param name="/inchworm/robot_description" command="$(find xacro)/xacro $(find inchworm_description)/urdf/one_inchworm.urdf"/>
+
+  <group ns="inchworm">
+
+    <!-- Load hardware interface -->
+    <node name="inchworm_hardware_interface" pkg="ros_control_boilerplate" type="inchworm_hw_main"
+          output="screen" launch-prefix="$(arg launch_prefix)" />
+
+    <!-- Load controller settings -->
+    <rosparam file="$(find ros_control_boilerplate)/inchworm_control/config/inchworm_controllers.yaml" command="load"/>
+
+    <!-- Load controller manager -->
+    <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
+	  output="screen" args="spawn position_trajectory_controller" />
+  </group>
+
+  <!-- Convert joint states to /tf tranforms -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap from="robot_description" to="inchworm/robot_description" />
+    <remap from="joint_states" to="inchworm/joint_states" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="world_to_iw" args="0 0 0 0 0 0 /world /iw_root 100"/> 
+
+  <!-- <include file="$(find inchworm_moveit)/launch/move_group.launch" /> -->
+
+  <node name="serial_interface" type="serial_node.py" pkg="rosserial_python">
+    <param name="port" value="/dev/ttyACM0" />
+    <param name="baud" value="115200" />
+  </node>
+
+  <!-- <node name="desired_pose_startup" type="desired_pose_startup.py" pkg="inchworm_hw_interface" /> -->
+
+  <node name="plotjuggler" type="plotjuggler" pkg="plotjuggler" />
+
+  <!-- <node name="rviz" type="rviz" pkg="rviz" args="-d $(find inchworm_description)/rviz/inchworm_frames.rviz" /> -->
+
+</launch>

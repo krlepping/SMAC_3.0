@@ -1,0 +1,47 @@
+cartwheel:
+  - curl_down:
+      type: joint
+      duration: 10.0
+      payload:
+        - 0
+        - 0.445464
+        - 1.935214
+        - 0.771403
+        - 0
+  - disable_top:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+
+  - align_with_shingle:
+      type: joint
+      duration: 2.0
+      payload:
+        - -0.001314
+        - 0.581825
+        - 1.974910
+        - 0.579380
+        - 0.002288
+  - enable_both:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: True
+  - disable_bottom:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: False
+        magnet2: True
+  - return_home:
+      type: joint
+      duration: 10.0
+      payload:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0

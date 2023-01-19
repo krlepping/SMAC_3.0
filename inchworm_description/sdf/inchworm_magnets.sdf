@@ -1,0 +1,160 @@
+<?xml version='1.0'?>
+<sdf version="1.4" xmlns:xacro="http://www.ros.org/wiki/xacro" > 
+  <!-- TODO: Include any other magnet SDFs -->
+
+  <!-- Magnet mate model -->
+  <xacro:macro name="inchworm_mate">
+    <mate_model type="iw" model="dipole">
+      <symmetry>
+        <!-- Both the inchworm EEs and the shingle mount points are 3-symmetric around the normal -->
+        <rot>1 1 4</rot>
+      </symmetry>
+
+      <dipole>
+        <position>0 0 0.1</position>
+        <moment>0 0 0</moment>
+        <min_distance>0.012</min_distance>
+      </dipole>
+
+      <max_force>18000 18000 45000</max_force>
+      <max_torque>10000 10000 10000</max_torque>
+      <max_distance>0.01</max_distance>
+
+      <attach_threshold>
+        <linear>0.03</linear>
+        <angular>0.3</angular>
+      </attach_threshold>
+
+      <detach_threshold>
+        <linear>0.06</linear>
+        <angular>0.6</angular>
+      </detach_threshold>
+
+      <joint type="fixed" name="iw">
+        <pose>0 0 0 0 0 0</pose>
+        <parent>iw_foot</parent>
+        <child>shingle</child>
+        <physics>
+          <provide_feedback>true</provide_feedback>
+          <ode>
+            <!-- Commented out in gbeam sim -->
+          </ode>
+        </physics>
+      </joint>
+    </mate_model>
+  </xacro:macro>
+
+  <!-- Roof mate model -->
+  <xacro:macro name="shingle_mate">
+    <mate_model type="rs" model="dipole">
+      <symmetry>
+        <!-- Both the inchworm EEs and the shingle mount points are 3-symmetric around the normal -->
+        <rot>1 1 4</rot>
+      </symmetry>
+
+      <dipole>
+        <position>0 0 0.1</position>
+        <moment>0 0 0</moment>
+        <min_distance>0.012</min_distance>
+      </dipole>
+
+      <max_force>18000 18000 45000</max_force>
+      <max_torque>10000 10000 10000</max_torque>
+      <max_distance>0.01</max_distance>
+
+      <attach_threshold>
+        <linear>0.03</linear>
+        <angular>0.3</angular>
+      </attach_threshold>
+
+      <detach_threshold>
+        <linear>0.06</linear>
+        <angular>0.6</angular>
+      </detach_threshold>
+
+      <joint type="fixed" name="rs">
+        <pose>0 0 0 0 0 0</pose>
+        <parent>roof</parent>
+        <child>shingle</child>
+        <physics>
+          <provide_feedback>true</provide_feedback>
+          <ode>
+            <!-- Commented out in gbeam sim -->
+          </ode>
+        </physics>
+      </joint>
+    </mate_model>
+  </xacro:macro>
+
+  <!-- Inchworm foot atom -->
+  <xacro:macro name="iw_foot_atom" params="">
+    <atom_model type="iw_foot">
+      <mate_point type="iw" gender="male">
+        <pose>0 0 -0.001 0 0 0</pose>
+      </mate_point>
+    </atom_model>
+    <atom_model type="iw_root">
+      <mate_point type="iw" gender="male">
+        <pose>0 0 -0.001 0 0 0</pose>
+      </mate_point>
+    </atom_model>
+  </xacro:macro>
+
+  <!-- Shingle atoms -->
+  <xacro:macro name="shingle_atom" params="">
+    <!-- Shingle <-> Inchworm -->
+    <atom_model type="shingle">
+      <mate_point type="iw" gender="female">
+        <pose>0 0.0137 0 -${radians(90)} 0 ${radians(9.02)}</pose>
+      </mate_point>
+
+      <mate_point type="rs" gender="female">
+        <pose>0 -0.0145 0 0 0 0</pose>
+      </mate_point>
+    </atom_model>
+    <!-- TODO -->
+  </xacro:macro>
+
+  <!-- roof atom -->
+  <xacro:macro name="roof_atom" params="num_cols num_rows shingle_height shingle_width overhang horiz_offset vert_offset z_offset">
+    <atom_model type="roof">
+      <xacro:macro name="gen_row" params="col_count row_count">
+        <xacro:if value="${col_count}">
+          <xacro:if  value="${row_count % 2 != num_rows % 2}">
+            <mate_point type="rs" gender="male">
+              <pose> ${(shingle_width + horiz_offset)*(num_cols - col_count) + shingle_width/2}
+                ${0.008 + (shingle_height - overhang + vert_offset)*(num_rows - row_count)} 
+                ${0.030}
+                ${radians(90)} 0 -${radians(90)}} </pose>
+            </mate_point>
+          </xacro:if>
+          <xacro:unless value="${row_count % 2 != num_rows % 2}">
+            <mate_point type="rs" gender="male">
+              <pose> ${(shingle_width + horiz_offset)*(num_cols - col_count) + shingle_width}
+                ${0.008 + (shingle_height - overhang + vert_offset)*(num_rows - row_count)} 
+                ${0.030}
+                ${radians(90)} 0 -${radians(90)}}</pose>
+            </mate_point>
+          </xacro:unless>
+          <xacro:gen_row col_count="${col_count - 1}" row_count="${row_count}" />
+        </xacro:if>
+      </xacro:macro>
+
+      <xacro:macro name="gen_grid" params="row_num col_num">
+        <xacro:if value="${row_num}">
+          <xacro:gen_row col_count="${col_num}" row_count="${row_num}" /> 
+          <xacro:gen_grid row_num="${row_num - 1}" col_num="${col_num}"/> 
+        </xacro:if>
+      </xacro:macro>
+
+      <xacro:gen_grid row_num="${num_rows}" col_num="${num_cols}" />
+      
+     
+    </atom_model>
+  </xacro:macro>
+</sdf>
+<!--
+
+  
+
+-->

@@ -1,0 +1,669 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Inchworm Model1
+        - /TF1
+        - /TF1/Frames1
+        - /RobotModel1
+      Splitter Ratio: 0.5
+    Tree Height: 746
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: 1 meter grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.5
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: Inchworm Model
+      Robot Description: inchworm/robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Axes Length: 0.25
+      Axes Radius: 0.019999999552965164
+      Class: rviz/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: EE Goal
+      Queue Size: 10
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Axes
+      Topic: /inchworm/next_goal
+      Unreliable: false
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        iw_foot_top_0/iw_foot:
+          Value: false
+        iw_foot_top_0/male_0:
+          Value: false
+        iw_root_0:
+          Value: false
+        iw_root_0/iw_root:
+          Value: false
+        iw_root_0/male_0:
+          Value: false
+        roof_0/male_0:
+          Value: true
+        roof_0/male_1:
+          Value: true
+        roof_0/male_10:
+          Value: false
+        roof_0/male_11:
+          Value: false
+        roof_0/male_12:
+          Value: false
+        roof_0/male_13:
+          Value: false
+        roof_0/male_14:
+          Value: false
+        roof_0/male_15:
+          Value: false
+        roof_0/male_16:
+          Value: false
+        roof_0/male_17:
+          Value: false
+        roof_0/male_18:
+          Value: false
+        roof_0/male_19:
+          Value: false
+        roof_0/male_2:
+          Value: false
+        roof_0/male_20:
+          Value: false
+        roof_0/male_21:
+          Value: false
+        roof_0/male_22:
+          Value: false
+        roof_0/male_23:
+          Value: false
+        roof_0/male_24:
+          Value: false
+        roof_0/male_3:
+          Value: false
+        roof_0/male_4:
+          Value: false
+        roof_0/male_5:
+          Value: false
+        roof_0/male_6:
+          Value: false
+        roof_0/male_7:
+          Value: false
+        roof_0/male_8:
+          Value: false
+        roof_0/male_9:
+          Value: false
+        roof_0/roof:
+          Value: false
+        shingle_0/female_0:
+          Value: false
+        shingle_0/female_1:
+          Value: true
+        shingle_0/shingle:
+          Value: false
+        shingle_1/female_0:
+          Value: false
+        shingle_1/female_1:
+          Value: true
+        shingle_1/shingle:
+          Value: false
+        shingle_10/female_0:
+          Value: false
+        shingle_10/female_1:
+          Value: false
+        shingle_10/shingle:
+          Value: false
+        shingle_11/female_0:
+          Value: false
+        shingle_11/female_1:
+          Value: false
+        shingle_11/shingle:
+          Value: false
+        shingle_12/female_0:
+          Value: false
+        shingle_12/female_1:
+          Value: false
+        shingle_12/shingle:
+          Value: false
+        shingle_13/female_0:
+          Value: false
+        shingle_13/female_1:
+          Value: false
+        shingle_13/shingle:
+          Value: false
+        shingle_14/female_0:
+          Value: false
+        shingle_14/female_1:
+          Value: false
+        shingle_14/shingle:
+          Value: false
+        shingle_15/female_0:
+          Value: false
+        shingle_15/female_1:
+          Value: false
+        shingle_15/shingle:
+          Value: false
+        shingle_16/female_0:
+          Value: false
+        shingle_16/female_1:
+          Value: false
+        shingle_16/shingle:
+          Value: false
+        shingle_17/female_0:
+          Value: false
+        shingle_17/female_1:
+          Value: false
+        shingle_17/shingle:
+          Value: false
+        shingle_18/female_0:
+          Value: false
+        shingle_18/female_1:
+          Value: false
+        shingle_18/shingle:
+          Value: false
+        shingle_19/female_0:
+          Value: false
+        shingle_19/female_1:
+          Value: false
+        shingle_19/shingle:
+          Value: false
+        shingle_2/female_0:
+          Value: false
+        shingle_2/female_1:
+          Value: false
+        shingle_2/shingle:
+          Value: false
+        shingle_20/female_0:
+          Value: false
+        shingle_20/female_1:
+          Value: false
+        shingle_20/shingle:
+          Value: false
+        shingle_21/female_0:
+          Value: false
+        shingle_21/female_1:
+          Value: false
+        shingle_21/shingle:
+          Value: false
+        shingle_22/female_0:
+          Value: false
+        shingle_22/female_1:
+          Value: false
+        shingle_22/shingle:
+          Value: false
+        shingle_23/female_0:
+          Value: false
+        shingle_23/female_1:
+          Value: false
+        shingle_23/shingle:
+          Value: false
+        shingle_24/female_0:
+          Value: false
+        shingle_24/female_1:
+          Value: false
+        shingle_24/shingle:
+          Value: false
+        shingle_3/female_0:
+          Value: false
+        shingle_3/female_1:
+          Value: false
+        shingle_3/shingle:
+          Value: false
+        shingle_4/female_0:
+          Value: false
+        shingle_4/female_1:
+          Value: false
+        shingle_4/shingle:
+          Value: false
+        shingle_5/female_0:
+          Value: false
+        shingle_5/female_1:
+          Value: false
+        shingle_5/shingle:
+          Value: false
+        shingle_6/female_0:
+          Value: false
+        shingle_6/female_1:
+          Value: false
+        shingle_6/shingle:
+          Value: false
+        shingle_7/female_0:
+          Value: false
+        shingle_7/female_1:
+          Value: false
+        shingle_7/shingle:
+          Value: false
+        shingle_8/female_0:
+          Value: false
+        shingle_8/female_1:
+          Value: false
+        shingle_8/shingle:
+          Value: false
+        shingle_9/female_0:
+          Value: false
+        shingle_9/female_1:
+          Value: false
+        shingle_9/shingle:
+          Value: false
+        world:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          iw_foot_top_0/iw_foot:
+            iw_foot_top_0/male_0:
+              {}
+          iw_root_0:
+            {}
+          iw_root_0/iw_root:
+            iw_root_0/male_0:
+              {}
+          roof_0/roof:
+            roof_0/male_0:
+              {}
+            roof_0/male_1:
+              {}
+            roof_0/male_10:
+              {}
+            roof_0/male_11:
+              {}
+            roof_0/male_12:
+              {}
+            roof_0/male_13:
+              {}
+            roof_0/male_14:
+              {}
+            roof_0/male_15:
+              {}
+            roof_0/male_16:
+              {}
+            roof_0/male_17:
+              {}
+            roof_0/male_18:
+              {}
+            roof_0/male_19:
+              {}
+            roof_0/male_2:
+              {}
+            roof_0/male_20:
+              {}
+            roof_0/male_21:
+              {}
+            roof_0/male_22:
+              {}
+            roof_0/male_23:
+              {}
+            roof_0/male_24:
+              {}
+            roof_0/male_3:
+              {}
+            roof_0/male_4:
+              {}
+            roof_0/male_5:
+              {}
+            roof_0/male_6:
+              {}
+            roof_0/male_7:
+              {}
+            roof_0/male_8:
+              {}
+            roof_0/male_9:
+              {}
+          shingle_0/shingle:
+            shingle_0/female_0:
+              {}
+            shingle_0/female_1:
+              {}
+          shingle_1/shingle:
+            shingle_1/female_0:
+              {}
+            shingle_1/female_1:
+              {}
+          shingle_10/shingle:
+            shingle_10/female_0:
+              {}
+            shingle_10/female_1:
+              {}
+          shingle_11/shingle:
+            shingle_11/female_0:
+              {}
+            shingle_11/female_1:
+              {}
+          shingle_12/shingle:
+            shingle_12/female_0:
+              {}
+            shingle_12/female_1:
+              {}
+          shingle_13/shingle:
+            shingle_13/female_0:
+              {}
+            shingle_13/female_1:
+              {}
+          shingle_14/shingle:
+            shingle_14/female_0:
+              {}
+            shingle_14/female_1:
+              {}
+          shingle_15/shingle:
+            shingle_15/female_0:
+              {}
+            shingle_15/female_1:
+              {}
+          shingle_16/shingle:
+            shingle_16/female_0:
+              {}
+            shingle_16/female_1:
+              {}
+          shingle_17/shingle:
+            shingle_17/female_0:
+              {}
+            shingle_17/female_1:
+              {}
+          shingle_18/shingle:
+            shingle_18/female_0:
+              {}
+            shingle_18/female_1:
+              {}
+          shingle_19/shingle:
+            shingle_19/female_0:
+              {}
+            shingle_19/female_1:
+              {}
+          shingle_2/shingle:
+            shingle_2/female_0:
+              {}
+            shingle_2/female_1:
+              {}
+          shingle_20/shingle:
+            shingle_20/female_0:
+              {}
+            shingle_20/female_1:
+              {}
+          shingle_21/shingle:
+            shingle_21/female_0:
+              {}
+            shingle_21/female_1:
+              {}
+          shingle_22/shingle:
+            shingle_22/female_0:
+              {}
+            shingle_22/female_1:
+              {}
+          shingle_23/shingle:
+            shingle_23/female_0:
+              {}
+            shingle_23/female_1:
+              {}
+          shingle_24/shingle:
+            shingle_24/female_0:
+              {}
+            shingle_24/female_1:
+              {}
+          shingle_3/shingle:
+            shingle_3/female_0:
+              {}
+            shingle_3/female_1:
+              {}
+          shingle_4/shingle:
+            shingle_4/female_0:
+              {}
+            shingle_4/female_1:
+              {}
+          shingle_5/shingle:
+            shingle_5/female_0:
+              {}
+            shingle_5/female_1:
+              {}
+          shingle_6/shingle:
+            shingle_6/female_0:
+              {}
+            shingle_6/female_1:
+              {}
+          shingle_7/shingle:
+            shingle_7/female_0:
+              {}
+            shingle_7/female_1:
+              {}
+          shingle_8/shingle:
+            shingle_8/female_0:
+              {}
+            shingle_8/female_1:
+              {}
+          shingle_9/shingle:
+            shingle_9/female_0:
+              {}
+            shingle_9/female_1:
+              {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: false
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: RobotModel
+      Robot Description: inchworm/shingle_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: false
+      Visual Enabled: true
+    - Acceleration_Scaling_Factor: 0.1
+      Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: false
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: true
+      MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Cartesian_Path: false
+      MoveIt_Use_Constraint_Aware_IK: false
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: true
+        Show Trail: false
+        State Display Time: 3x
+        Trail Step Size: 1
+        Trajectory Topic: move_group/display_planned_path
+        Use Sim Time: false
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.07999999821186066
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: ltr
+        Query Goal State: true
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 0.8999999761581421
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.009999999776482582
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: false
+      Velocity_Scaling_Factor: 0.1
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 0.7724030017852783
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0.00820415373891592
+        Y: -0.012269439175724983
+        Z: 0.07101521641016006
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.16039830446243286
+      Target Frame: <Fixed Frame>
+      Yaw: 4.675542831420898
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1043
+  Hide Left Dock: false
+  Hide Right Dock: true
+  MotionPlanning:
+    collapsed: false
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000022300000375fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000375000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067000000020f000001880000017d00fffffffb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff000000160000001600000001000001000000035afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000035a000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d0065010000000000000780000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000005570000037500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1920
+  X: 0
+  Y: 0

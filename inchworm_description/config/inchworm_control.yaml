@@ -1,0 +1,32 @@
+inchworm_N:
+  joint_state_controller:
+    publish_rate: 50
+    type: joint_state_controller/JointStateController
+
+  position_trajectory_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+      - iw_ankle_foot_bottom_N
+      - iw_beam_ankle_bottom_N
+      - iw_mid_joint_N
+      - iw_beam_ankle_top_N
+      - iw_ankle_foot_top_N
+
+    gains:
+      iw_ankle_foot_bottom_N: {p: 1000, i: 0, d: 1}
+      iw_beam_ankle_bottom_N: {p: 150.0, i: 0, d: 1}
+      iw_mid_joint_N: {p: 150.0, i: 0, d: 1}
+      iw_beam_ankle_top_N: {p: 150.0, i: 0, d: 1}
+      iw_ankle_foot_top_N: {p: 1000, i: 0, d: 1}
+
+    constraints:
+      iw_ankle_foot_bottom_N:
+        goal: 0.025
+      iw_beam_ankle_bottom_N:
+        goal: 0.025
+      iw_mid_joint_N:
+        goal: 0.025
+      iw_beam_ankle_top_N:
+        goal: 0.025
+      iw_ankle_foot_top_N:
+        goal: 0.025

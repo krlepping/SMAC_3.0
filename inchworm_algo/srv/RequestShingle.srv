@@ -1,0 +1,5 @@
+Header header
+int8 robot_id
+bool half_shingle
+---
+ShingleMsg shingle

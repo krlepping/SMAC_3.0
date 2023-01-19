@@ -1,0 +1,14 @@
+<launch>
+    <arg name="roof_width"/>
+    <arg name="roof_height"/>
+    <arg name="inchworm_count"/>
+    <arg name="pattern" default="0"/>
+    <arg name="rate" default="10"/>
+    <arg name="use_gui" default="true"/>
+    <arg name="name_space" default="algo"/>
+    <arg name="physics" default="False"/>
+    <node pkg="inchworm_algo" type="algo_node.py" name="algo_node" args="$(arg roof_width) $(arg roof_height) $(arg inchworm_count) $(arg rate) $(arg pattern) $(arg physics)" ns="$(arg name_space)" output="screen"/>
+
+
+    <node pkg="inchworm_algo" type="algo_visualizer.py" name="algo_viz" args="$(arg roof_width) $(arg roof_height) $(arg rate)" output="screen" ns="$(arg name_space)" if="$(arg use_gui)"/>
+</launch>

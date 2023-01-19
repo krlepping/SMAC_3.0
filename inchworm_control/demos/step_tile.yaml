@@ -1,0 +1,131 @@
+step_tile:
+  - setup:
+      type: delay
+      duration: 5.0
+
+  - lift:
+      type: joint
+      duration: 4.0
+      payload:
+        - 0.000
+        - 0.23
+        - 2.2
+        - 0.64
+        - 0
+
+  - wait:
+      type: delay
+      duration: 0.5
+
+  - hover:
+      type: joint
+      duration: 4.0
+      payload:
+        - 0.00
+        - 0.75
+        - 1.16
+        - 1.2
+        - 0.0
+    
+  - disable_top:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: True
+        magnet2: False
+
+  - step:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.0
+        - 0.9
+        - 1.4
+        - 0.9
+        - 0.0
+
+  - enable_top:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: True
+  
+
+
+  - jiggle:
+      type: joint
+      duration: 1.0
+      payload:
+        - 0.0
+        - 0.9
+        - 1.35
+        - 0.9
+        - 0.2
+  
+  - jiggle_back:
+      type: joint
+      duration: 1.0
+      payload:
+        - 0.0
+        - 0.9
+        - 1.35
+        - 0.9
+        - 0
+
+
+
+  - disable_bottom:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: False
+        magnet2: True
+
+  - remove_foot:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.0
+        - 1.0
+        - 1.5
+        - 0.7
+        - 0.0
+  
+  - pull in:
+      type: joint
+      duration: 4.0
+      payload:
+        - 0.0
+        - 1.75
+        - 2.2
+        - -0.75
+        - 0.0
+
+  - enable_bottom:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: True
+        magnet2: True
+
+
+  - rotate:
+      type: joint
+      duration: 4.0
+      payload:
+        - 0.0
+        - 1.75
+        - 2.2
+        - -0.75
+        - 3.2
+
+  - step:
+      type: joint
+      duration: 10.0
+      payload:
+        - 0.0
+        - 0.9
+        - 1.4
+        - 0.9
+        - 3.2  

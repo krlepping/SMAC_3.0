@@ -1,0 +1,12 @@
+# Requests that an end effector reads data from an RFID tag
+
+# True if data should be read from the bottom foot, otherwise it should read the top
+bool bottom_foot
+
+# Block number to read from RFID tag. Should be >=4, since 0-3 are manufacturer data
+uint8 block
+
+---
+
+# Byte array, populated with the data in requested block on success
+uint8[] data

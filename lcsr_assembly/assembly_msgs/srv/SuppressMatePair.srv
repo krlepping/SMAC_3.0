@@ -1,0 +1,13 @@
+# [parent model, child model, child model, ..., child model, link]
+# minimum length 2, expected 3+
+string[] scoped_female
+string[] scoped_male
+
+# Female and male mate indices. Can be found by echoing /active_mates, the last part of each link name is ::N, where N is the mate index.
+uint16 female_mate_id
+uint16 male_mate_id
+
+bool suppress
+---
+# (is a valid mate) && (is now suppressed)
+bool suppressed

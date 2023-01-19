@@ -1,0 +1,133 @@
+walking:
+  - disable_top:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: True
+        magnet2: False
+  - approach_up:
+      type: joint
+      duration: 5.0
+      payload:
+        - -0.637798
+        - 0.302589
+        - 2.093379
+        - 0.745904
+        - 0.641896
+  - align_up:
+      type: joint
+      duration: 2.0
+      payload:
+        - -0.636859
+        - 0.339589
+        - 2.172925
+        - 0.609584
+        - 0.641896
+  - wait:
+      type: delay
+      duration: 1.0
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: False
+        magnet2: True
+  - approach_down:
+      type: joint
+      duration: 5.0
+      payload:
+        - -2.507555
+        - 0.351378
+        - 2.172676
+        - 0.593346
+        - 2.512295
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+  - align_up:
+      type: joint
+      duration: 5.0
+      payload:
+        - -0.636859
+        - 0.339589
+        - 2.172925
+        - 0.609584
+        - 0.641896
+  - wait:
+      type: delay
+      duration: 1.0
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: False
+        magnet2: True
+  - approach_down:
+      type: joint
+      duration: 5.0
+      payload:
+        - -2.507555
+        - 0.351378
+        - 2.172676
+        - 0.593346
+        - 2.512295
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+  - align_up:
+      type: joint
+      duration: 5.0
+      payload:
+        - -0.636859
+        - 0.339589
+        - 2.172925
+        - 0.609584
+        - 0.641896
+  - wait:
+      type: delay
+      duration: 1.0
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: False
+        magnet2: True
+  - approach_down:
+      type: joint
+      duration: 5.0
+      payload:
+        - -2.507555
+        - 0.351378
+        - 2.172676
+        - 0.593346
+        - 2.512295
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+  - align_up:
+      type: joint
+      duration: 5.0
+      payload:
+        - -0.636859
+        - 0.339589
+        - 2.172925
+        - 0.609584
+        - 0.641896
+  - wait:
+      type: delay
+      duration: 1.0
+  - flip_magnets:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: False
+        magnet2: True

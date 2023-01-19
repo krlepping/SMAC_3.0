@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_ltr_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - iw_ankle_foot_bottom
+      - iw_beam_ankle_bottom
+      - iw_mid_joint
+      - iw_beam_ankle_top
+      - iw_ankle_foot_top
+initial:  # Define initial robot poses per group
+  - group: ltr
+    pose: no_torque

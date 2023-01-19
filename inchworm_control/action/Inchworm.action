@@ -1,0 +1,18 @@
+# Action type. Options:
+# 0: Move to absolute coordinate.
+# 1: Pickup shingle. Must be preceded by a move command to place the floating EE over that shingle.
+# 2. Place shingle. Must be preceded by a move command to place the EE over the shingle's install location
+# 3. Spawn shingle. Spawns a shingle at the given absolute x,y. Spot must be free, or fun things happen
+uint8 action_type
+
+# X,Y absolute coordinates in even-r that the action is relative to
+uint8 coord_x
+uint8 coord_y
+
+# True if bottom end effector, False if top
+# Used for actions 0-2
+bool end_effector
+---
+bool success
+---
+bool done

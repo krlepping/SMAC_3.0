@@ -1,0 +1,7 @@
+Header header
+int8 shingle_id
+int8 x_coord
+int8 y_coord
+---
+bool returnStatus
+ShingleMsg shingle

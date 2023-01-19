@@ -1,0 +1,46 @@
+<launch>
+  <arg name="model_name" default="inchworm"/>
+  <arg name="model" default="updated_description"/>
+  <arg name="shingle_name" default="shingle"/>
+  <arg name="shingle_model" default="shingle"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="gui" default="true"/>
+    <arg name="paused" default="false"/>
+  </include>
+
+  <!-- <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(arg gui) $(arg paused) -gazebo_namespace $(arg model_name)" /> -->
+  <group ns="$(arg model_name)">
+
+    <param name="/inchworm/robot_description" command="$(find xacro)/xacro $(find inchworm_description)/urdf/$(arg model).urdf"/>
+
+    <param name="/$(arg shingle_name)/robot_description" command="$(find xacro)/xacro $(find inchworm_description)/urdf/$(arg shingle_model).urdf"/>
+
+    <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 100" />
+
+    <rosparam file="$(find inchworm_description)/config/joint_names_inchworm_description.yaml" command="load" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  </group>
+
+  <rosparam file="$(find inchworm_description)/config/inchworm_control.yaml" command="load" />
+
+  <include file="$(find inchworm_moveit)/launch/move_group.launch">
+    <remap from="joint_states" to="inchworm/joint_states" />
+  </include>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="--namespace=/inchworm
+        joint_state_controller
+        joint_effort_controller_joint_1
+        joint_effort_controller_joint_2
+        joint_effort_controller_joint_3
+        joint_effort_controller_joint_4
+        joint_effort_controller_joint_5" />
+
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-param $(arg model_name)/robot_description -urdf -model $(arg model_name)" output="screen" />
+  <node name="spawn_shingle" pkg="gazebo_ros" type="spawn_model" args="-param $(arg shingle_name)/robot_description -urdf -model $(arg shingle_name) -x 0.1 -y 0.127" output="screen" />
+
+</launch>

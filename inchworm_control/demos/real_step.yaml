@@ -1,0 +1,52 @@
+cartwheel:
+  - calibration:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.35148
+        - 2.44896
+        - 0.33461
+        - 0
+
+  - wait:
+      type: delay
+      duration: 1.0
+
+  - up:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - -0.02472
+        - 2.44436
+        - 0.708898
+        - 0
+
+  - wait:
+      type: delay
+      duration: 1.0
+
+  - over:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.660577
+        - 1.4361548
+        - 1.048674
+        - 0
+
+  - wait:
+      type: delay
+      duration: 1.0
+
+  - down:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.8853059
+        - 1.43692183
+        - 0.8461894
+        - 0

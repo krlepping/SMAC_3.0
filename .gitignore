@@ -1,0 +1,3 @@
+.vscode/
+*.pyc
+inchworm_control/logs

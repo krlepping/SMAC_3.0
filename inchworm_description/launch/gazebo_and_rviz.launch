@@ -1,0 +1,71 @@
+<launch>
+  <arg name="model" default="inchworm"/>
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="false"/>
+  <arg name="paused" default="true"/>
+
+  <arg name="real_robot" default="false" />
+
+  <arg name="use_moveit" default="false" />
+
+  <arg name="robot_count" default="2" />
+  <param name="robot_count" value="$(arg robot_count)" />
+
+
+  <arg name="roof_width" default="6" />
+  <param name="roof_width" value="$(arg roof_width)" />
+
+  <arg name="roof_height" default="6" />
+
+
+  <param name="roof_height" value="$(arg roof_height)" />
+
+  <!-- Launch Gazebo, only if we're not running on the real robot-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" unless="$(arg real_robot)">
+    <arg name="gui" default="true"/>
+    <arg name="verbose" default="true" />
+    <arg name="paused" default="$(arg paused)"/>
+  </include>
+
+  <!-- load all the nodes -->
+  <node name="node_loader" pkg="inchworm_description" type="load_nodes.py" output="screen">
+    <param name="robot_count" value="$(arg robot_count)" />
+  </node>
+  <!-- Everything to be launched in the robot namespace. Robot description, robot state publisher -->
+  <group ns="$(arg model)_0">
+
+    <!-- Robot and shingle description for RViz -->
+    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find inchworm_description)/urdf/$(arg model)_description.urdf idx:=0"/> -->
+    <param name="shingle_description" command="$(find xacro)/xacro $(find inchworm_description)/urdf/shingle.urdf" />
+
+    <!-- Robot description for gazebo + magnet sim -->
+    <param name="/inchworm/robot_description_sdf" command="$(find xacro)/xacro $(find inchworm_description)/sdf/all_models.sdf robot_count:=$(arg robot_count) roof_width:=$(arg roof_width) roof_height:=$(arg roof_height)" />
+
+    <rosparam file="$(find inchworm_description)/config/joint_names_inchworm_description.yaml" command="load" />
+
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" launch-prefix="bash -c 'sleep 3; $0 $@' "/> -->
+  </group>
+
+  <!-- Launch the controllers which provide a command interface to robot joints. -->
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="-namespace=/inchworm_0
+        joint_state_controller
+        position_trajectory_controller" unless="$(arg real_robot)"/> -->
+
+  <!-- Spawn the robot sdf into the sim -->
+  <node name="spawn_scene" pkg="gazebo_ros" type="spawn_model" args="-param $(arg model)/robot_description_sdf -sdf -model $(arg model)" output="screen" />
+
+  <!-- Publishes world -> iw_root transform. -->
+  <node name="iw_tf_republisher" pkg="inchworm_description" type="iw_tf_republisher.py" />
+
+  <!-- Informs the assembly sim about magnet states. -->
+  <node name="magnet_state_observer" pkg="inchworm_description" type="magnet_state_observer.py" output="screen" />
+
+  <!-- Startup RViz-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find inchworm_description)/rviz/inchworm_frames.rviz" if="$(arg rviz)"/>
+
+  <!-- Start the MoveGroup that will control the robot. -->
+  <include file="$(find inchworm_moveit)/launch/move_group.launch" if="$(arg use_moveit)" />
+
+  <!-- Start up the action manager -->
+  <node name="action_manager" pkg="inchworm_control" type="action_manager.py" output="screen" />
+</launch>

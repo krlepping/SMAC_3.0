@@ -1,0 +1,43 @@
+<sdf version="1.7" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="roof_description" params="x y z rx ry rz fixed idx width height">
+    <model name="roof_description_${idx}">
+      <xacro:if value="${fixed}">
+        <joint name="fixed_to_world" type="fixed">
+          <parent>world</parent>
+          <child>roof_${idx}</child>
+        </joint>
+      </xacro:if>
+      <pose>${x} ${y} ${z} ${rx} ${ry} ${rz}</pose>
+      <link name="roof_${idx}">
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.151</mass>
+          <inertia>
+            <ixx>0.0038554</ixx>
+            <ixy>0.0094075</ixy>
+            <ixz>0.001709</ixz>
+            <iyy>0.004445</iyy>
+            <iyz>0.0012246</iyz>
+            <izz>0.0025729</izz>
+          </inertia>
+        </inertial>
+        <collision name="roof_fixed_joint_lump__collision_collision">
+          <pose>${width/2} ${height/2} 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>${width} ${height} 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="roof_fixed_joint_lump__visual_visual">
+          <pose>${width/2} ${height/2} 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>${width} ${height} 0.02</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </xacro:macro>
+</sdf>

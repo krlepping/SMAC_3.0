@@ -1,0 +1,91 @@
+pick_and_place:
+  - disable_top:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+  - rotate:
+      type: joint
+      duration: 5.0
+      payload:
+        - 3.086928
+        - 0
+        - 0
+        - 0
+        - 0
+  - approach:
+      type: joint
+      duration: 8.0
+      payload:
+        - 3.086928
+        - 0.832995
+        - 1.312889
+        - 1.001097
+        - 0.070418
+  - pick:
+      type: joint
+      duration: 1.5
+      payload:
+        - 3.099448
+        - 0.862345
+        - 1.346376
+        - 0.938077
+        - 0.046937
+  - wait:
+      type: delay
+      duration: 1.0
+  - enable_top:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: True
+  - back_away:
+      type: joint
+      duration: 1.5
+      payload:
+        - 3.111724
+        - 0.795060
+        - 1.300166
+        - 1.063816
+        - 0.040283
+  - rotate:
+      type: joint
+      duration: 8.0
+      payload:
+        - 0
+        - 0.795060
+        - 1.300166
+        - 1.063816
+        - 3.141592
+  - wait:
+      type: delay
+      duration: 1.0
+  - place:
+      type: joint
+      duration: 1.5
+      payload:
+        - 0
+        - 0.862345
+        - 1.346376
+        - 0.9
+        - 3.141592
+  - wait:
+      type: delay
+      duration: 1.0
+  - disable_top:
+      type: magnet
+      duration: 2.0
+      payload:
+        magnet1: True
+        magnet2: False
+  - home:
+      type: joint
+      duration: 5.0
+      payload:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0

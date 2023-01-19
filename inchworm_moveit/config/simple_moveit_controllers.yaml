@@ -1,0 +1,11 @@
+controller_list:
+  - name: /inchworm/position_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - iw_ankle_foot_bottom
+      - iw_beam_ankle_bottom
+      - iw_mid_joint
+      - iw_beam_ankle_top
+      - iw_ankle_foot_top

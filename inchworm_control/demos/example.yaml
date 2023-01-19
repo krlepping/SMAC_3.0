@@ -1,0 +1,36 @@
+# This is a template for all kinds of valid actions.
+# Valid types:
+# joint  - Joint actuation. Will go from the robot's current state to new requested state.
+#          Order of joints is assumed to be bottom to top.
+#          Type of trajectory is cubic (for now)
+# magnet - Magnet state. Will publish a MagnetState corresponding to the payload.
+#          Both magnets disabled is invalid and will not execute.
+# nfc    - NFC read/write. If payload is provided, then it is a write.
+# comm   - Communication to nearby robot. If payload contains a `bytes` field, it is a write.
+
+# Duration is in seconds, and is how long the action will last.
+example_demo:
+  # Demos are executed sequentially
+  - go_home:
+      type: joint
+      duration: 5
+      payload:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+  - disable_top:
+      type: magnet
+      duration: 2
+      payload:
+        magnet1: True
+        magnet2: False
+  - write_data:
+      type: nfc
+      duration: 2
+      payload:
+        data: "abcd"
+  - read_robot:
+      type: comm
+      duration: 2

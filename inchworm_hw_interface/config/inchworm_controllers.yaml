@@ -1,0 +1,38 @@
+inchworm_hw_interface:
+  joints:
+    - iw_ankle_foot_bottom
+    - iw_beam_ankle_bottom
+    - iw_mid_joint
+    - iw_beam_ankle_top
+    - iw_ankle_foot_top
+
+# joint_state_controller is not needed, since the serial_msg_interface directly publishes JointState
+# joint_state_controller:
+#   type: joint_state_controller/JointStateController
+
+position_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - iw_ankle_foot_bottom
+    - iw_beam_ankle_bottom
+    - iw_mid_joint
+    - iw_beam_ankle_top
+    - iw_ankle_foot_top
+  # TOLERANCE:
+  constraints:
+    goal_time: 5.0
+    iw_ankle_foot_bottom:
+      trajectory: 0.02
+      goal: 0.01
+    iw_beam_ankle_bottom:
+      trajectory: 0.02
+      goal: 0.01
+    iw_beam_ankle_top:
+      trajectory: 0.02
+      goal: 0.01
+    iw_ankle_foot_top:
+      trajectory: 0.02
+      goal: 0.01
+    j5:
+      trajectory: 0.02
+      goal: 0.01

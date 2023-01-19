@@ -1,0 +1,19 @@
+# message type that corresponds to inchworm.py
+Header header
+int8 id
+int8[] bottom_foot_pos
+int8[] top_foot_pos
+int8 bottom_foot_status
+int8 top_foot_status
+int8 bottom_foot_shingle_stat
+int8 top_foot_shingle_stat
+int8 behavior
+int8[] roof
+int8 roof_width
+int8[] shingle_depot_pos
+int8[] bottom_foot_valid_neighbors
+int8[] top_foot_valid_neighbors
+int8[] target
+int8 state
+int8[] claimed
+float32[] roof_conf

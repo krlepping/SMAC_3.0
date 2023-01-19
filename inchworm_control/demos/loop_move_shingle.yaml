@@ -1,0 +1,152 @@
+step_tile:
+ ##get to the camera ##
+  - setup:
+      type: delay
+      duration: 2.0
+
+  - Ninja Pose:
+      type: joint
+      duration: 1.5
+      payload:
+        - 0.0
+        - 1.27
+        - 2.2
+        - -0.34
+        - 0.0
+
+  - Rotate:
+      type: joint
+      duration: 1.0
+      payload:
+        - 0.75
+        - 1.27
+        - 2.2
+        - -0.34
+        - 0.67
+
+  - Hover:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.62
+        - 0.85
+        - 2.0
+        - 0.23
+        - 0.67
+
+  - disable_magnet:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: False
+        magnet2: True
+
+  - land:
+      type: joint
+      duration: 0.5
+      payload:
+        - 0.6
+        - 0.6
+        - 2.2
+        - 0.45
+        - 0.7
+
+  - enable_magnet:
+      type: magnet
+      duration: 1.0
+      payload:
+        magnet1: True
+        magnet2: True
+
+  ## now holding the shingle
+  
+  - lift:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.6
+        - 0.85
+        - 2.0
+        - -0.14
+        - 0.64
+
+
+  ## get around the robot
+
+
+  - finish_rotation:
+      type: joint
+      duration: 2.0
+      payload:
+        - 2.5
+        - 0.9
+        - 2.2
+        - -0.14
+        - 2.5
+
+  - hover_new_pos:
+      type: joint
+      duration: 1.0
+      payload:
+       - 2.6
+       - 0.8
+       - 2.0
+       - 0.0
+       - 2.45
+
+  - drop:
+      type: joint
+      duration: 1.0
+      payload:
+        - 2.6
+        - 0.56
+        - 2.190489
+        - 0.38
+        - 2.45
+
+
+  ### GO BACK HOME ###
+
+  - disable_magnet:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: False
+        magnet2: True
+  
+  - ninja_pose:
+      type: joint
+      duration: 2.0
+      payload:
+        - 2.5
+        - 1.27
+        - 2.2
+        - -0.34
+        - 2.5
+
+  - enable_magnet:
+      type: magnet
+      duration: 0.1
+      payload:
+        magnet1: True
+        magnet2: True
+
+  - rotate_back:
+      type: joint
+      duration: 1.5
+      payload:
+        - 0
+        - 1.27
+        - 2.2
+        - -0.34
+        - 0
+
+  - home_pose:
+      type: joint
+      duration: 1.0
+      payload:
+        - 0
+        - 0.5
+        - 2.2
+        - 0.5
+        - 0

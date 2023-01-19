@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="https://ros.org/wiki/xacro">
+  <xacro:macro name="inchworm_mate" params="magnet_r">
+    <mate_model type="inchworm_mate" model="dipole">
+        <symmetry>
+            <rot>1 1 4</rot>
+        </symmetry>
+
+        <!-- All three values measured experimentally. -->
+        <max_force>18 18 44.5</max_force>
+
+        <!-- All three values chosen randomly. -->
+        <max_torque>10 10 10</max_torque>
+
+        <!-- Arbitrary. -->
+        <max_distance>0.02</max_distance>
+
+        <!-- Three dipoles create an equilateral triangle, with center->vertex = magnet_r and centered on origin. -->
+        <dipole>
+            <position>0 ${magnet_r} 0</position>
+            <moment>0 0 0.02</moment>
+            <min_distance>0.005</min_distance>
+        </dipole>
+        <dipole>
+            <position>${magnet_r * cos(radians(90+120))} ${magnet_r * sin(radians(90+120))} 0</position>
+            <moment>0 0 0.02</moment>
+            <min_distance>0.005</min_distance>
+        </dipole>
+        <dipole>
+            <position>${magnet_r * cos(radians(90+240))} ${magnet_r * sin(radians(90+240))} 0</position>
+            <moment>0 0 0.02</moment>
+            <min_distance>0.005</min_distance>
+        </dipole>
+
+        <attach_threshold>
+            <linear>${linear_attach}</linear>
+            <angular>${angular_attach}</angular>
+        </attach_threshold>
+
+        <detach_threshold>
+          <linear>${linear_detach}</linear>
+          <angular>${angular_detach}</angular>
+        </detach_threshold>
+
+        <joint type="fixed" name="inchworm_mate">
+            <!-- TODO: Determine correct pose offset for foot -->
+            <pose>0 0 0 0 0 0</pose>
+
+            <!-- Strings must match the beginning of link names.
+                 This should match both shingles and roof, as links are
+                 prefixed with `iw` on inchworm and `env` on shingle/roof. -->
+            <parent>iw</parent>
+            <child>env</child>
+            <physics>
+                <provide_feedback>true</provide_feedback>
+                <ode>
+                    <max_force>44.5</max_force>
+                </ode>
+            </physics>
+
+        <joint>
+    </mate_model>
+  </xacro:macro>
+</robot>

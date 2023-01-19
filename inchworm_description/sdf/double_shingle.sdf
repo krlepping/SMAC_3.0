@@ -1,0 +1,17 @@
+<sdf version="1.7" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find inchworm_description)/sdf/shingle.sdf" />
+    <xacro:include filename="$(find inchworm_description)/sdf/inchworm_description.sdf" />
+    <xacro:include filename="$(find inchworm_description)/sdf/inchworm_magnets.sdf" />
+    <model name="inchworm_soup">
+        <plugin name="assembly_soup" filename="libassembly_soup_plugin.so">
+            <tf_world_frame>world</tf_world_frame>
+            <publish_active_mates>1</publish_active_mates>
+            <xacro:inchworm_mate />
+            <xacro:iw_foot_atom />
+            <xacro:shingle_atom />
+        </plugin>
+        <xacro:inchworm_description x="0" y="0" z="0.05" rx="0" ry="0" rz="0" fixed="0" idx="0" />
+        <xacro:shingle_description x="0" y="0" z="0.02" rx="${radians(90)}" ry="${radians(9.02)}" rz="-${radians(90)}" fixed="1" idx="0" gravity="1" />
+        <xacro:shingle_description x="-0.255" y="0" z="0.02" rx="${radians(90)}" ry="${radians(9.02)}" rz="-${radians(90)}" fixed="0" idx="1" gravity="0" />
+    </model>
+</sdf>

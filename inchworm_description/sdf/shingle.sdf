@@ -1,0 +1,55 @@
+<sdf version="1.7" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="shingle_description" params="x y z rx ry rz fixed idx gravity">
+    <model name="shingle_description_${idx}">
+      <xacro:if value="${fixed}">
+        <joint name="fixed_to_world" type="fixed">
+          <parent>world</parent>
+          <child>shingle_${idx}</child>
+        </joint>
+      </xacro:if>
+      <pose>${x} ${y} ${z} ${rx} ${ry} ${rz}</pose>
+      <link name="shingle_${idx}">
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.0551</mass>
+          <inertia>
+            <ixx>0.0038554</ixx>
+            <ixy>0.0094075</ixy>
+            <ixz>0.001709</ixz>
+            <iyy>0.004445</iyy>
+            <iyz>0.0012246</iyz>
+            <izz>0.0025729</izz>
+          </inertia>
+        </inertial>
+        <collision name="shingle_fixed_joint_lump__collision1_collision">
+          <pose>-0.092913 -0.014478 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.075 0.01 0.235</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="shingle_fixed_joint_lump__collision2_collision_1">
+          <pose>-0.04508 0 0 0 -0 1.72822</pose>
+          <geometry>
+            <box>
+              <size>0.0075 0.17 0.235</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="shingle_fixed_joint_lump__visual_visual">
+          <pose>-0.13716 -0.022117 -0.127 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://inchworm_description/media/Demo_Shingle.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <xacro:if value="${gravity == 0}">
+          <gravity>0</gravity>
+        </xacro:if>
+      </link>
+    </model>
+  </xacro:macro>
+</sdf>
