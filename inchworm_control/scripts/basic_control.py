@@ -12,7 +12,7 @@ def main():
 
   planner = TrajectoryPlanner(idx=idx)
 
-  rospy.sleep(1.0)
+  # rospy.sleep(1.0)
 
   while True:
     goals = [0] * 5

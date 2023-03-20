@@ -13,7 +13,7 @@ class TrajectoryPlanner:
 
   def __init__(self, idx=0):
     self.idx = idx
-    self.real_robot = rospy.get_param("real_robot", False)
+    self.real_robot = rospy.get_param("real_robot", True)
 
     if self.real_robot:
       traj_cli = f"/inchworm/position_trajectory_controller/follow_joint_trajectory"
@@ -31,7 +31,7 @@ class TrajectoryPlanner:
     self.current_joint_state = None
 
     self.last_desired_state = None
-    rospy.sleep(0.25)
+    # rospy.sleep(0.25)
 
   def jointCB(self, msg):
     self.current_joint_state = msg
