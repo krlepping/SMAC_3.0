@@ -1,0 +1,10 @@
+lift_block_ee1_3apart:
+  - lift_up_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 1.187172
+        - 1.942202
+        - 0.012217
+        - 0

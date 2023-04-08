@@ -1,0 +1,10 @@
+home_position:
+  - three_apart:
+      type: joint
+      duration: 3.0
+      payload:
+        - 0
+        - 0.489041
+        - 2.163510
+        - 0.489041
+        - 0

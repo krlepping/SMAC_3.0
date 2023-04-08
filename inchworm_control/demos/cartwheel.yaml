@@ -8,13 +8,15 @@ cartwheel:
         - 1.935214
         - 0.771403
         - 0
-  - disable_top:
-      type: magnet
-      duration: 2.0
+  - unscrew_top:
+      type: joint
+      duration: 5.0
       payload:
-        magnet1: True
-        magnet2: False
-
+        - 0.523598
+        - 0.445464
+        - 1.935214
+        - 0.771403
+        - 0
   - align_with_shingle:
       type: joint
       duration: 2.0
@@ -24,18 +26,24 @@ cartwheel:
         - 1.974910
         - 0.579380
         - 0.002288
-  - enable_both:
-      type: magnet
-      duration: 2.0
+  - screw_top:
+      type: joint
+      duration: 5.0
       payload:
-        magnet1: True
-        magnet2: True
-  - disable_bottom:
-      type: magnet
-      duration: 2.0
+        - 0
+        - 0.445464
+        - 1.935214
+        - 0.771403
+        - 0
+  - unscrew_bottom:
+      type: joint
+      duration: 5.0
       payload:
-        magnet1: False
-        magnet2: True
+        - 0
+        - 0.445464
+        - 1.935214
+        - 0.771403
+        - 0.523598
   - return_home:
       type: joint
       duration: 10.0

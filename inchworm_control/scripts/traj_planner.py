@@ -31,7 +31,7 @@ class TrajectoryPlanner:
     self.current_joint_state = None
 
     self.last_desired_state = None
-    # rospy.sleep(0.25)
+    rospy.sleep(0.25)
 
   def jointCB(self, msg):
     self.current_joint_state = msg

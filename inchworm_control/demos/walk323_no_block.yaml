@@ -1,0 +1,100 @@
+walk323_no_block:
+  - unscrew_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.523598
+        - 0.489041
+        - 2.163510
+        - 0.489041
+        - 0
+
+  - lift_up_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.523598
+        - 0.660607
+        - 2.149023
+        - 0.331961
+        - 0
+
+  - align_ee1:
+      type: joint
+      duration: 3.0
+      payload:
+        - 0.523598
+        - 0.570373
+        - 2.641555
+        - 0.070162
+        - 0
+
+  - put_down_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.523598
+        - 0.237015
+        - 2.667386
+        - 0.237015
+        - 0
+
+  - screw_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.237015
+        - 2.667386
+        - 0.237015
+        - 0
+
+  - unscrew_ee2:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.445464
+        - 1.935214
+        - 0.771403
+        - 0.523598
+
+  - lift_up_ee2:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.070162
+        - 2.641555
+        - 0.570373
+        - 0.523598
+
+  - align_ee2:
+      type: joint
+      duration: 3.0
+      payload:
+        - 0
+        - 0.331961
+        - 2.149023
+        - 0.660607
+        - 0.523598
+
+  - put_down_ee2:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.489041
+        - 2.163510
+        - 0.489041
+        - 0.523598
+
+  - screw_ee2:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0.489041
+        - 2.163510
+        - 0.489041
+        - 0

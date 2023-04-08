@@ -1,0 +1,9 @@
+  - lower_block_ee1_3apart:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 1.016654
+        - 2.035752
+        - 0.089360
+        - 0

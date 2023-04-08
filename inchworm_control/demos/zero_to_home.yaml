@@ -1,0 +1,19 @@
+zero_to_home:
+  - zero:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+  - three_apart:
+      type: joint
+      duration: 3.0
+      payload:
+        - 0
+        - 0.489041
+        - 2.163510
+        - 0.489041
+        - 0
