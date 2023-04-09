@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import numpy as np
+import time
 import rospy, actionlib
 
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
@@ -31,7 +32,7 @@ class TrajectoryPlanner:
     self.current_joint_state = None
 
     self.last_desired_state = None
-    rospy.sleep(0.25)
+    #rospy.sleep(0.25)
 
   def jointCB(self, msg):
     self.current_joint_state = msg
@@ -138,7 +139,8 @@ class TrajectoryPlanner:
     '''
 
     while self.current_joint_state is None:
-      rospy.sleep(0.1)
+      #rospy.sleep(0.1)
+      time.sleep(0.1)
 
     if self.last_desired_state is None:
       last_states = self.current_joint_state
@@ -196,7 +198,7 @@ class TrajectoryPlanner:
 
     if wait:
       rospy.loginfo(f"Duration: {duration}")
-      rospy.sleep(duration)
+      #rospy.sleep(duration)
       # self.traj_client.wait_for_result()
       rospy.loginfo("Done sleeping")
 
