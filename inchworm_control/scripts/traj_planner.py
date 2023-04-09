@@ -22,17 +22,20 @@ class TrajectoryPlanner:
     else:
       traj_cli = f"/inchworm_{idx}/position_trajectory_controller/follow_joint_trajectory"
       joint_topic = f"/inchworm_{idx}/joint_states"
-
+      print("what")
+    print("here")
     # self.traj_pub = rospy.Publisher(traj_topic, JointTrajectory, queue_size=1)
     self.traj_client = actionlib.SimpleActionClient(traj_cli, FollowJointTrajectoryAction)
+    print("wait am I here")
     self.traj_client.wait_for_server()
 
     self.joint_sub = rospy.Subscriber(joint_topic, JointState, self.jointCB)
 
     self.current_joint_state = None
-
+    print("still here")
     self.last_desired_state = None
-    #rospy.sleep(0.25)
+    rospy.sleep(0.25)
+    print("surprised I'm here")
 
   def jointCB(self, msg):
     self.current_joint_state = msg
@@ -139,8 +142,8 @@ class TrajectoryPlanner:
     '''
 
     while self.current_joint_state is None:
-      #rospy.sleep(0.1)
-      time.sleep(0.1)
+      rospy.sleep(0.1)
+
 
     if self.last_desired_state is None:
       last_states = self.current_joint_state
@@ -198,7 +201,7 @@ class TrajectoryPlanner:
 
     if wait:
       rospy.loginfo(f"Duration: {duration}")
-      #rospy.sleep(duration)
+      rospy.sleep(duration)
       # self.traj_client.wait_for_result()
       rospy.loginfo("Done sleeping")
 
