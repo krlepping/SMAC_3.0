@@ -18,7 +18,7 @@ def main():
     rospy.sleep(0.1)
 
     file_name_small = str(input("Name of yaml file: "))
-    file_name_complete = os.getcwd() + file_name_small
+    file_name_complete = os.getcwd() + "/inchworm_control/demos/" + file_name_small
 
     with open(file_name_complete, 'r') as file:
         move_info = yaml.safe_load_all(file)
