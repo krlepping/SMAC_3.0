@@ -3,7 +3,7 @@ home_position:
       type: joint
       duration: 3.0
       payload:
-        - 0.847182
+        - 1.170766
         - 0.489041
         - 2.163510
         - 0.489041
