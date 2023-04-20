@@ -1,0 +1,10 @@
+ zero:
+   - zero:
+       type: joint
+       duration: 2.0
+       payload:
+         - 0
+         - 0
+         - 0
+         - 0
+         - 0

@@ -3,8 +3,8 @@ lift_block_ee1_3apart:
       type: joint
       duration: 2.0
       payload:
-        - 0
+        - 0.523598
         - 1.187172
         - 1.942202
         - 0.012217
-        - 0
+        - 0.523598

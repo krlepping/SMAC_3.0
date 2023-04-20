@@ -1,0 +1,30 @@
+move_block_1x3_cc:
+  - verify_start:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.523598
+        - 1.016654
+        - 2.035752
+        - 0.089360
+        - 0.523598
+
+  - lift_up_ee1:
+      type: joint
+      duration: 2.0
+      payload:
+        - 0.523598
+        - 1.187172
+        - 1.942202
+        - 0.012217
+        - 0.523598
+
+  - turn_1_cc:
+      type: joint
+      duration: 3.0
+      payload:
+        - 0.523598
+        - 1.187172
+        - 1.942202
+        - 0.012217
+        - 0.523598
