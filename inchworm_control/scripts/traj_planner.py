@@ -17,7 +17,6 @@ class TrajectoryPlanner:
         self.real_robot = rospy.get_param("real_robot", False)
 
         if self.real_robot:
-            print("robot is real")
             traj_cli = f"/inchworm/position_trajectory_controller/follow_joint_trajectory"
             joint_topic = f"/inchworm/joint_states"
         else:
@@ -25,12 +24,9 @@ class TrajectoryPlanner:
             joint_topic = f"/inchworm_{idx}/joint_states"
 
         # self.traj_pub = rospy.Publisher(traj_topic, JointTrajectory, queue_size=1)
-        print("will the client work??")
 
         self.traj_client = actionlib.SimpleActionClient(traj_cli, FollowJointTrajectoryAction)
-        print("the issue is wait_for_server()")
         self.traj_client.wait_for_server()
-        print("yay it did")
 
         self.joint_sub = rospy.Subscriber(joint_topic, JointState, self.jointCB)
 
