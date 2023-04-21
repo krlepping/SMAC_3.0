@@ -2,7 +2,7 @@
 
 import serial
 
-ser = serial.Serial("/dev/ttyACM0", 9600, timeout=2)
+ser = serial.Serial("/dev/ttyACM1", 9600, timeout=2)
 
 try:
     while True:
