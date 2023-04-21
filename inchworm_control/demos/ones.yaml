@@ -1,0 +1,10 @@
+ones:
+  - ones:
+      type: joint
+      duration: 2.0
+      payload:
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
