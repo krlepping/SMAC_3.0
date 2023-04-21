@@ -4,7 +4,7 @@ home_position:
       duration: 3.0
       payload:
         - 0.200014
-        - 0.25
+        - 0.1
         - 2.4
         - 0.314508
         - 0.0
