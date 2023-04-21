@@ -36,7 +36,7 @@
   <!-- <include file="$(find inchworm_moveit)/launch/move_group.launch" /> -->
 
   <node name="serial_interface" type="serial_node.py" pkg="rosserial_python">
-    <param name="port" value="/dev/ttyACM0" />
+    <param name="port" value="/dev/ttyACM1" />
     <param name="baud" value="115200" />
   </node>
 
