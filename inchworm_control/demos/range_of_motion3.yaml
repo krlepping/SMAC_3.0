@@ -1,0 +1,20 @@
+range_of_motion3:
+  - start:
+      type: joint
+      duration: 2.0
+      payload:
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+        - 1.0
+
+  - end:
+      type: joint
+      duration: 2.0
+      payload:
+        - 1.0
+        - 1.0
+        - 4.0
+        - 1.0
+        - 1.0
